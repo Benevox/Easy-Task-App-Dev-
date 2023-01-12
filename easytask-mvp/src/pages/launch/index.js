@@ -1,9 +1,9 @@
 import React from "react";
-import {  } from "../";
+import logo from '../../assets/images/logo.png'
 
 function LaunchScreen() {
     return (<div className="container">
-        
+        <img src={logo} />
     </div>);
 }
 
