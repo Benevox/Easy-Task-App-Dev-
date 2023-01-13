@@ -1,3 +1,7 @@
+EasyTask RSD on GDocs
+https://docs.google.com/document/d/1zounu74o6g_zZb1Bm-rFKNi9h_Pnn79EjD62wldl8Tg/edit
+
+# <<<<<<< codespace-regicyber-glowing-space-halibut-7wj97gxg4xq3r4jp
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#  >>>>>>> main
