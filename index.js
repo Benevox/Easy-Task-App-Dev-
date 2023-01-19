@@ -51,4 +51,4 @@ app.use('/api/user/category/', categoryRoute);
 app.use('/api/skills/category/', skillCategoryRoute);
 
 const port = process.env.PORT || 8000;
-app.listen(port, () => console.log(`Listening on port ${port}... http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening on port ${port}...`));
