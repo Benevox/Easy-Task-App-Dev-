@@ -1,19 +1,15 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import LaunchScreen from "./pages/launch";
+import App from "./App.js";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-
-const App = React.lazy(() => import("./App.js"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<LaunchScreen />}>
       <App />
-    </Suspense>
-  </React.StrictMode>
+  </React.StrictMode> 
 );
 
 // If you want your app to work offline and load faster, you can change

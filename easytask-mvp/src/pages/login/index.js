@@ -9,7 +9,8 @@ import google from '../../assets/images/google.png'
 
 function Login() {
 
-    const { register } = useForm();
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
 
     return (
         <div className="container bg-white h-screen w-screen p-5">
@@ -20,7 +21,7 @@ function Login() {
                 <h1 className='text-darkest text-2xl font-bold'>Welcome</h1>
                 <p className='text-dark-light'>Login into your account to get started</p>
             </div>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("email")} type="email" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Email' />
                 <input {...register("password")} type="password" className='min-w-full h-14 border rounded-xl mt-6 p-3 border-stroke' placeholder='Password' />
                 <div className='min-w-full mt-4 flex justify-between'>

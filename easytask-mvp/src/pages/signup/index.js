@@ -9,8 +9,10 @@ import google from '../../assets/images/google.png'
 
 function SignUp() {
 
-  const { register } = useForm();
-
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => {
+    console.log(data);
+  }
   return (
     <div className="container bg-white w-screen p-5">
       <div className='w-100 p-5 grid place-items-end'>
@@ -20,18 +22,18 @@ function SignUp() {
         <h1 className='text-darkest text-2xl font-bold'>Sign Up</h1>
         <p className='text-dark-light'>Create an account to get started</p>
       </div>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("firstName")} type="text" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='First Name' />
         <input {...register("lastName")} type="text" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Last Name' />
         <input {...register("email")} type="email" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Email' />
-        <input {...register("dateOfBirth")} type="date" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Date of Birth' />
-        <select className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke text-soft-dark'>
-          <option selected>What are you signing up as ?</option>
+        <input {...register("dob")} type="date" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Date of Birth' />
+        <select {...register("category")} className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke text-soft-dark'>
+          <option defaultValue={"Category"}>Category</option>
           <option value={"customer"}>Customer</option>
           <option value={"Tasker"}>Tasker</option>
         </select>
         <input {...register("password")} type="password" className='min-w-full h-14 border rounded-xl mt-6 p-3 border-stroke' placeholder='Password' />
-        <input {...register("password")} type="password" className='min-w-full h-14 border rounded-xl mt-6 p-3 border-stroke' placeholder='Confirm Password' />
+        <input {...register("confirmPassword")} type="password" className='min-w-full h-14 border rounded-xl mt-6 p-3 border-stroke' placeholder='Confirm Password' />
         <div className='min-w-full mt-4 flex'>
           <input type={"checkbox"} /><p className='ml-2 text-soft-dark'>By signing up, i confirm, I accept the <Link className='text-facebook'>Terms</Link> & <Link className='text-facebook'>Conditions</Link>  & <Link className='text-facebook'>community guideline</Link> Privacy policy.</p>
         </div>
