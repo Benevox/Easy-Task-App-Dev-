@@ -25,11 +25,6 @@ function SignUp() {
         <input {...register("lastName")} type="text" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Last Name' />
         <input {...register("email")} type="email" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Email' />
         <input {...register("dateOfBirth")} type="date" className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke' placeholder='Date of Birth' />
-        <select className='min-w-full h-14 border rounded-xl mt-9 p-3 border-stroke text-soft-dark'>
-          <option selected>What are you signing up as ?</option>
-          <option value={"customer"}>Customer</option>
-          <option value={"Tasker"}>Tasker</option>
-        </select>
         <input {...register("password")} type="password" className='min-w-full h-14 border rounded-xl mt-6 p-3 border-stroke' placeholder='Password' />
         <input {...register("password")} type="password" className='min-w-full h-14 border rounded-xl mt-6 p-3 border-stroke' placeholder='Confirm Password' />
         <div className='min-w-full mt-4 flex'>
@@ -43,7 +38,7 @@ function SignUp() {
       <fieldset class="border-t border-soft-dark mt-3">
         <legend class="mx-auto px-4 text-soft-dark">or Continue with</legend>
       </fieldset>
-      <div className='grid grid-cols-2 gap-2 my-8'>
+      <div className='grid grid-cols-2 gap-2 my-4'>
         <Link>
           <img src={facebook} alt="facebook logo" />
         </Link>
