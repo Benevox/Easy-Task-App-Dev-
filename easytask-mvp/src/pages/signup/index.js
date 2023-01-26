@@ -45,7 +45,7 @@ function SignUp() {
       <fieldset class="border-t border-soft-dark mt-3">
         <legend class="mx-auto px-4 text-soft-dark">or Continue with</legend>
       </fieldset>
-      <div className='grid grid-cols-2 gap-2 my-4'>
+      <div className='grid grid-cols-2 gap-2 my-8'>
         <Link>
           <img src={facebook} alt="facebook logo" />
         </Link>
