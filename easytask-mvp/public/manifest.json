@@ -1,6 +1,6 @@
 {
   "short_name": "Easytask",
-  "name": "Easytask",
+  "name": "Easytask MVP app",
   "icons": [
     {
       "src": "favicon.ico",
@@ -14,9 +14,9 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": "./",
