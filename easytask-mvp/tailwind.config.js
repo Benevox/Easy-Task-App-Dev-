@@ -12,7 +12,8 @@ module.exports = {
       "stroke": "#CACCCF",
       "soft-dark": "#494D50",
       "facebook": "#1877F2",
-      "bar-gray": '#D9D9D9'
+      "bar-gray": '#D9D9D9',
+      "light-line": '#E8E8E8'
     },
     extend: {},
   },

@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logoblue.png'
 import facebook from '../../assets/images/facebook.png'
 import google from '../../assets/images/google.png'
+import AuthContext from '../../contexts/AuthContext';
 
 
 
 function Login() {
-
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async data => {
+        login(data);
+    };
 
     return (
         <div className="container bg-white h-screen w-screen p-5">
