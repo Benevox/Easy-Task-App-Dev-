@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App.js";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
+import AuthProvider from "./contexts/AuthProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <AuthProvider>
       <App />
-  </React.StrictMode> 
+    </AuthProvider>
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
