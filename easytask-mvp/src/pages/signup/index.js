@@ -7,8 +7,15 @@ import google from "../../assets/images/google.png";
 import signup from "../../logic/signup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
 
 function SignUp() {
+  const navigate = useNavigate();
+  const { signInNewUser } = useContext(AuthContext);
+
   const formSchema = Yup.object().shape({
     firstName: Yup.string().required("first name is required"),
     lastName: Yup.string().required("last name is required"),
@@ -28,7 +35,7 @@ function SignUp() {
     yupResolver(formSchema)
   );
   const onSubmit = ({ confirmPassword, ...data }) => {
-    signup({ ...data });
+    signup({ ...data }, signInNewUser, navigate);
   };
 
   return (
@@ -105,7 +112,14 @@ function SignUp() {
       </form>
       <div className="min-w-full mt-2 flex justify-center">
         <span className="text-soft-dark">Already have an account?</span>
-        <span className="font-bold ml-1 text-facebook">Log in</span>
+        <span
+          className="font-bold ml-1 text-facebook cursor"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Log in
+        </span>
       </div>
       <fieldset class="border-t border-soft-dark mt-3">
         <legend class="mx-auto px-4 text-soft-dark">or Continue with</legend>
