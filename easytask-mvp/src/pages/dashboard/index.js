@@ -15,26 +15,34 @@ import task from "../../assets/icons/task-square.svg";
 import home from "../../assets/icons/home.svg";
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <div className="container h-screen w-screen flex flex-col">
-      <DashHeader name={`${user.firstName} ${user.lastName}`} profilePic={profilePic} />
+      <DashHeader
+        name={`${user.firstName} ${user.lastName}`}
+        profilePic={profilePic}
+      />
       <h1 className="text-4xl p-5">
         Work less, Let’s <br />
         <span className="font-bold">Get your Job Done.</span>
       </h1>
-      <div className="bg-primary-100 m-5 flex gap-4 p-5 rounded-xl">
+      <div
+        className="bg-primary-100 m-5 flex gap-4 p-5 rounded-xl cursor-pointer"
+        onClick={() => navigate('/postjob')}
+      >
         <img src={postPlus} alt="plus icon" />
         <span className="font-bold text-2xl text-basic-white">Post my Job</span>
       </div>
       <div className="flex flex-row gap-5 p-5">
-        <DashOption icon={repair} jobType={"Repair Laptop"} />
-        <DashOption icon={cook} jobType={"Cooking"} />
-        <DashOption icon={cake} jobType={"Baker"} />
-        <DashOption icon={brush} jobType={"Painting"} />
+        <DashOption icon={repair} jobType={"Repair Laptop"} onClick={() => navigate('/postjob')}/>
+        <DashOption icon={cook} jobType={"Cooking"} onClick={() => navigate('/postjob')}/>
+        <DashOption icon={cake} jobType={"Baker"} onClick={() => navigate('/postjob')}/>
+        <DashOption icon={brush} jobType={"Painting"} onClick={() => navigate('/postjob')}/>
       </div>
       <div className="flex flex-row p-5">
         <img src={recommend} alt="recommend" />

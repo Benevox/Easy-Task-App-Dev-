@@ -7,17 +7,20 @@ import google from "../../assets/images/google.png";
 import AuthContext from "../../contexts/AuthContext";
 import swal from "sweetalert";
 
-function Login() {
+const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
+
   const onSubmit = async (data) => {
-    const isLogin = await login(data);
-    if (isLogin === "authorised") {
-      navigate("/dashboard");
-    } else {
-      swal(isLogin);
-    }
+   await login(data)
+      .then((result) => {
+        result === "Authorized" ? navigate("/dashboard") : swal(result);
+      })
+      .catch((error) => {
+        console.error(error);
+        swal("Login failed. Please try again.");
+      });
   };
 
   return (
@@ -46,30 +49,30 @@ function Login() {
         />
         <div className="min-w-full mt-4 flex justify-between">
           <span>
-            <input type={"checkbox"} />
+            <input type="checkbox" />
             <span className="ml-2 text-soft-dark">Remember me</span>
           </span>
-
-          <Link to={"/"} className="font-bold">
-            Forgot Password?
+          <Link to="/">
+            <span className="font-bold">Forgot Password?</span>
           </Link>
         </div>
         <button
-          type={"submit"}
+          type="submit"
           className="w-100 h-14 bg-primary-100 rounded-xl mt-7 grid place-items-center min-w-full text-basic-white font-bold"
-          placeholder="Login"
         >
           Login
         </button>
       </form>
       <div className="min-w-full mt-2 flex justify-center">
         <span className="text-soft-dark">Not a member? </span>
-        <Link to={"/signup"} className="font-bold ml-1">
-          Register now
+        <Link to="/signup">
+          <span className="font-bold ml-1">Register now</span>
         </Link>
       </div>
-      <fieldset class="border-t border-soft-dark mt-3">
-        <legend class="mx-auto px-4 text-soft-dark">or Continue with</legend>
+      <fieldset className="border-t border-soft-dark mt-3">
+        <legend className="mx-auto px-4 text-soft-dark">
+          or Continue with
+        </legend>
       </fieldset>
       <div className="grid grid-cols-2 gap-2 mt-4">
         <Link>
@@ -90,6 +93,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

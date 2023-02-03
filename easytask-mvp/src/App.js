@@ -10,6 +10,7 @@ import OnboardTwo from "./pages/onboarding/OnboardTwo";
 import OnboardThree from "./pages/onboarding/OnboardThree";
 import Dashboard from "./pages/dashboard/index";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PostJobs from './pages/post job/index';
 
 function App() {
   return (
@@ -56,6 +57,14 @@ function App() {
             <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/postjob"
+          element={
+           <ProtectedRoute>
+              <PostJobs />
+           </ProtectedRoute>
           }
         />
       </Routes>

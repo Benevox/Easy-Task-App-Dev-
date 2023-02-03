@@ -1,41 +1,28 @@
 import React, { useState } from "react";
 import AuthContext from "./AuthContext";
-
+import axios from "axios";
 
 const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
   const login = async (data) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}api/auth/login`, data);
+      const { _id } = response.data;
 
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: JSON.stringify(data),
-      redirect: "follow",
-    };
-
-    var response = await fetch(
-      "https://precious-macaulay-super-duper-rotary-gw57j5w5vr92vvj4-8000.preview.app.github.dev/api/auth/login",
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => JSON.parse(result))
-      .catch((error) => console.error(error));
-      
-      if (response._id) {
-          setIsAuthenticated(true);
-          setUser(response);
-          return 'authorised';
+      if (_id) {
+        setIsAuthenticated(true);
+        setUser(response.data);
+        return "Authorized";
       } else {
-        return response;
+        return response.data;
       }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const logout = () => {
-    setIsAuthenticated(false);
-  };
+  const logout = () => setIsAuthenticated(false);
 
   const signInNewUser = (user) => {
     setIsAuthenticated(true);
