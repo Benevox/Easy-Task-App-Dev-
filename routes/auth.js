@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const _ = require('lodash');
 const bcrypt = require("bcrypt");
 const { User, validateUser } = require('../models/User');
 
@@ -12,19 +13,18 @@ router.post("/register", async (req, res) => {
         let user = await User.findOne({ email: req.body.email });
         if(user) return res.status(409).send({ message: "User With given email already exist! "});
         
-        const salt = await bcrypt.genSalt(Number(process.env.SALT));
-        const hashPassword = await bcrypt.hash(req.body.password, salt);
-
-        user = await new User({  
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            dob: req.body.dob,
-            category: req.body.category,
-            password: hashPassword,
-        }).save();
         
-        res.status(200).json(user);
+
+        user = new User(_.pick(req.body, ['firstName', 'lastName', 'email', 'dob', 'category', 'password']));
+        const salt = await bcrypt.genSalt(Number(process.env.SALT));
+        user.password = await bcrypt.hash(user.password, salt);
+
+        await user.save();
+
+        const token = user.generateAuthToken();
+           
+        res.status(200).header('x-auth-token', token).json(user); 
+
         
     } catch (err) {
         res.status(500).json(err);
@@ -46,7 +46,11 @@ router.post("/login", async (req, res) => {
         else {
             const { password, ...others} = user._doc;
 
-           res.status(200).json(others); 
+            // config.get('jwtPrivateKey');
+            const token = user.generateAuthToken();
+           
+            res.status(200).header('x-auth-token', token).json(others); 
+            // json(others).
         }        
 
     } catch (err) {
