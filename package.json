@@ -34,5 +34,7 @@
   "bugs": {
     "url": "https://github.com/Benevox/Easy-Task-App/issues"
   },
-  "homepage": "https://github.com/Benevox/Easy-Task-App#readme"
+
+  "homepage": "https://github.com/Benevox/Easy-Task-App#readme",
+  "devDependencies": {}
 }
