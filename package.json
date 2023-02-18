@@ -1,13 +1,13 @@
 {
   "name": "easytask",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "the backend server of easytask",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "eno",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -22,5 +22,18 @@
     "mongoose": "^6.8.3",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benevox/Easy-Task-App.git"
+  },
+  "keywords": [
+    "easytask",
+    "backend"
+  ],
+  "bugs": {
+    "url": "https://github.com/Benevox/Easy-Task-App/issues"
+  },
+  "homepage": "https://github.com/Benevox/Easy-Task-App#readme",
+  "devDependencies": {}
 }
