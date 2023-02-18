@@ -2,9 +2,9 @@
   "name": "easytask",
   "version": "1.0.0",
   "description": "the backend server of easytask",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "eno",
@@ -34,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/Benevox/Easy-Task-App/issues"
   },
-
   "homepage": "https://github.com/Benevox/Easy-Task-App#readme",
   "devDependencies": {}
 }
