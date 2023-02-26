@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-easytaskapp-dev-115742-authRole",
+      "UnauthRoleArn": "arn:aws:iam::883478303495:role/amplify-easytaskapp-dev-115742-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::883478303495:role/amplify-easytaskapp-dev-115742-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-easytaskapp-dev-115742-deployment",
+      "UnauthRoleName": "amplify-easytaskapp-dev-115742-unauthRole",
+      "StackName": "amplify-easytaskapp-dev-115742",
+      "StackId": "arn:aws:cloudformation:us-east-1:883478303495:stack/amplify-easytaskapp-dev-115742/c92be4c0-b115-11ed-a026-0a5cdd118105",
+      "AmplifyAppId": "dg7rc5jw11oth"
+    }
+  },
+  "easytenv": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-easytaskapp-easytenv-120050-authRole",
+      "UnauthRoleArn": "arn:aws:iam::883478303495:role/amplify-easytaskapp-easytenv-120050-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::883478303495:role/amplify-easytaskapp-easytenv-120050-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-easytaskapp-easytenv-120050-deployment",
+      "UnauthRoleName": "amplify-easytaskapp-easytenv-120050-unauthRole",
+      "StackName": "amplify-easytaskapp-easytenv-120050",
+      "StackId": "arn:aws:cloudformation:us-east-1:883478303495:stack/amplify-easytaskapp-easytenv-120050/38bcfd60-b116-11ed-967d-0eac6f74b859",
+      "AmplifyAppId": "dg7rc5jw11oth"
+    },
+    "categories": {
+      "auth": {
+        "EasyTaskApp": {}
+      },
+      "function": {
+        "easytasklambdafunct": {
+          "deploymentBucketName": "amplify-easytaskapp-easytenv-120050-deployment",
+          "s3Key": "amplify-builds/easytasklambdafunct-6f4d496d594b704d746d-build.zip"
+        }
+      },
+      "api": {
+        "easytaskapi": {}
+      }
+    }
+  }
+}

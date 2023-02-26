@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/backend/api": {
+      "name": "/backend/api",
+      "lambdaFunction": "easytasklambdafunct",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
