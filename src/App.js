@@ -11,9 +11,9 @@ import OnboardThree from "./pages/onboarding/OnboardThree";
 import Dashboard from "./pages/dashboard/index";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PostJobs from './pages/post job/index';
-import { Amplify, Auth } from 'aws-amplify';
-import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
+// import { Amplify, Auth } from 'aws-amplify';
+// import awsconfig from './aws-exports';
+// Amplify.configure(awsconfig);
 
 function App() {
   return (
