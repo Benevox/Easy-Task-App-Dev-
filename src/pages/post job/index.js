@@ -51,7 +51,7 @@ function PostJobs() {
     // this is the axios call to the backend to post the job to the database
     await axios
       .post(
-        `${process.env.REACT_APP_API_URL}api/customer/createpost`,
+        `https://easy-task-app.herokuapp.com/api/customer/createpost`,
         JSON.stringify(data)
       )
       .then((response) => {

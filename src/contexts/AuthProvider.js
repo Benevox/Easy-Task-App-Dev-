@@ -7,7 +7,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const login = async (data) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}api/auth/login`, data);
+      const response = await axios.post(`https://easy-task-app.herokuapp.com/api/auth/login`, data);
       const { _id } = response.data;
 
       if (_id) {
