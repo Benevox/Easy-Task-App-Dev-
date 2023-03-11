@@ -31,8 +31,13 @@ function PostJobs() {
   };
 
   const handleSubmit = async (e) => {
-    // this function will be called when the user click on the submit button
     e.preventDefault();
+  
+    // Form field validation
+    if (!jobTitle || !jobDescription || !jobLocation || !jobDate || !jobTime || !budget) {
+      return swal("Please fill all required fields");
+    }
+  
     const data = {
       customerId: user._id,
       job: jobTitle,
@@ -47,18 +52,16 @@ function PostJobs() {
       budget: budget,
       survey: survey,
     };
-    console.log(data);
-    // this is the axios call to the backend to post the job to the database
-    await axios
-      .post(
-        `https://easy-task-app.herokuapp.com/api/customer/createpost`,
-        JSON.stringify(data)
-      )
-      .then((response) => {
-        console.log(response);
-      }); // this will take the user to the dashboard page after the job has been posted
-    swal("post job successfully");
-    navigate("/dashboard");
+  
+    try {
+      const response = await axios.post("https://easy-task-app.herokuapp.com/api/customer/createpost", data);
+      console.log(response);
+      swal("Job posted successfully");
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
+      swal("An error occurred while posting the job. Please try again later.");
+    }
   };
 
   return (
@@ -133,11 +136,10 @@ function PostJobs() {
             </label>
             <div className="flex flex-row gap-5">
               <div
-                className={`border rounded-xl grid place-items-center cursor-pointer p-3 ${
-                  inPerson
-                    ? "border-primary-100 text-light-line bg-primary-100"
-                    : "border-soft-dark bg-basic-white text-soft-dark"
-                }`}
+                className={`border rounded-xl grid place-items-center cursor-pointer p-3 ${inPerson
+                  ? "border-primary-100 text-light-line bg-primary-100"
+                  : "border-soft-dark bg-basic-white text-soft-dark"
+                  }`}
                 onClick={() => {
                   setInPerson((prevState) => !prevState);
                 }}
@@ -145,11 +147,10 @@ function PostJobs() {
                 In Person
               </div>
               <div
-                className={`border grid place-items-center cursor-pointer p-3 rounded-xl ${
-                  workOnline
-                    ? "border-primary-100 text-light-line bg-primary-100"
-                    : "border-soft-dark bg-basic-white text-soft-dark"
-                }`}
+                className={`border grid place-items-center cursor-pointer p-3 rounded-xl ${workOnline
+                  ? "border-primary-100 text-light-line bg-primary-100"
+                  : "border-soft-dark bg-basic-white text-soft-dark"
+                  }`}
                 onClick={() => {
                   setWorkOnline((prevState) => !prevState);
                 }}
@@ -202,11 +203,10 @@ function PostJobs() {
             </label>
             <div className="flex flex-row gap-5">
               <div
-                className={`border grid place-items-center cursor-pointer p-3 rounded-xl ${
-                  survey === "Yes"
-                    ? "border-primary-100 bg-primary-100 text-basic-white "
-                    : "border-soft-dark bg-basic-white text-soft-dark"
-                }"}}`}
+                className={`border grid place-items-center cursor-pointer p-3 rounded-xl ${survey === "Yes"
+                  ? "border-primary-100 bg-primary-100 text-basic-white "
+                  : "border-soft-dark bg-basic-white text-soft-dark"
+                  }"}}`}
                 onClick={() => {
                   setSurvey("Yes");
                 }}
@@ -214,11 +214,10 @@ function PostJobs() {
                 Yes
               </div>
               <div
-                className={`border grid place-items-center cursor-pointer p-3 rounded-xl ${
-                  survey === "No"
-                    ? "border-primary-100 bg-primary-100 text-basic-white "
-                    : "border-soft-dark bg-basic-white text-soft-dark"
-                }"}}`}
+                className={`border grid place-items-center cursor-pointer p-3 rounded-xl ${survey === "No"
+                  ? "border-primary-100 bg-primary-100 text-basic-white "
+                  : "border-soft-dark bg-basic-white text-soft-dark"
+                  }"}}`}
                 onClick={() => {
                   setSurvey("No");
                 }}
